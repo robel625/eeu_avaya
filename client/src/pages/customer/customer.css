@@ -1,0 +1,72 @@
+.c_cardBox{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+}
+
+.searchphone{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c_cardBox .c_card {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    /* display: flex;
+    justify-content: space-between;
+    cursor: pointer; */
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .c_title{
+    font-size: 16px;
+      font-weight: 500;
+  }
+
+  /* .c_bottom {
+    padding: 20px;
+  } */
+
+  .c_item{
+    margin: 5px 2px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+  }
+
+  .c_itemTitle{
+    width: 70px;
+    font-size: 1.1rem;
+  }
+
+  .c_comma{
+    margin: 10px;
+  }
+
+  .c_input{
+    min-width: 200px;
+    max-width: 400px;
+  }
+
+  .c_btncntrl{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+/* -------------------------- responsive --------------- */
+@media (max-width: 480px) {
+    .c_cardBox {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .hidden{
+      display: none;
+    }
+  }

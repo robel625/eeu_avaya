@@ -1,0 +1,208 @@
+.home{
+  margin-top: 15px ;
+}
+.username{
+    margin-left: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px;
+  }
+  
+  .cardBox .card1 {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .cardBox .card1 .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: var(--blue);
+  }
+  
+  .cardBox .card1 .cardName {
+    color: var(--black2);
+    font-size: 1.1rem;
+    margin-top: 5px;
+  }
+  
+  .cardBox .card1 .iconBx {
+    font-size: 3.5rem;
+    color: var(--black2);
+  }
+  
+  .cardBox .card1:hover {
+    background: var(--blue);
+  }
+  .cardBox .card1:hover .numbers,
+  .cardBox .card1:hover .cardName,
+  .cardBox .card1:hover .iconBx {
+    color: var(--white);
+  }
+
+  /* ----------------- table ----------*/
+  .details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    /* margin-top: 10px; */
+  }
+  
+  .details .recentOrders {
+    position: relative;
+    /* display: grid; */
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+  }
+  
+  .details .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+  .cardHeader h2 {
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .cardHeader .btn {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+  }
+
+  .details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
+  .details table thead th{
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .details table td{
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+
+  .details .recentOrders table tr  {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .details .recentOrders tbody tr:nth-of-type(even){
+    background-color: #f3f3f3; 
+}
+details .recentOrders tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+  background-color: #eef2bd;
+}
+  .details .recentOrders table tr:last-child {
+    border-bottom: none;
+  }
+  .details .recentOrders table tbody tr:hover {
+    background: var(--blue);
+    color: var(--white);
+  }
+  .details .recentOrders table tr td {
+    padding: 17px;
+  }
+  /* // .details .recentOrders table tr td:last-child {
+  //   text-align: end;
+  // }
+  // .details .recentOrders table tr td:nth-child(2) {
+  //   text-align: end;
+  // } */
+  
+  .details .recentOrders table tr,
+  .details .recentOrders table tr {
+    text-align: center;
+  }
+  
+  .status{
+    white-space: nowrap;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .status.new {
+    color: rgb(218, 32, 32);
+    background-color: rgba(189, 3, 3, 0.103);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .status.Completed {
+    color: green;
+    background-color: rgba(0, 128, 0, 0.151);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .status.Progress {
+    color: goldenrod;
+    background-color: rgba(189, 189, 3, 0.103);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .status.inProgress {
+    padding: 2px 4px;
+    background: #1795ce;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .paginate{
+    margin-left: auto;
+    width: max-content;
+  }
+
+
+
+
+  /*  ---------------------*/
+  @media (max-width: 991px) {
+    .cardBox {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .details {
+      grid-template-columns: 1fr;
+    }
+    .recentOrders {
+      overflow-x: auto;
+    }
+    .status.inProgress {
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cardBox {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }

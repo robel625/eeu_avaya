@@ -1,0 +1,228 @@
+.searchContainer
+{
+    display: flex;
+    width: 100%;
+}
+
+.searchLeft
+{
+    flex: 1;
+    width: 100%;
+    min-width: 350px;
+    height: 300px;
+    margin: 10px;
+    padding: 10px;
+    
+    border-radius: 10px;
+    box-shadow: 10px 11px 42px -2px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 11px 42px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 11px 42px -2px rgba(0,0,0,0.75);
+
+}
+
+.searchbar{
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+    border: none;
+    width: 70%;
+  }
+  
+  .searchInput:focus {
+    outline: none;
+  }
+
+.searchLeft1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchfield{
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.btncntrl{
+    display: flex;
+    justify-content: space-around;
+}
+/* -----------searchRight--------*/
+.searchRight
+{
+    flex: 1;
+    width: 100%;
+    margin: 10px 30px;
+    padding: 5px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    font-size: 18px;
+   font-weight: 400;
+
+}
+
+.label{
+    padding:5px;
+    display: flex;
+   /* justify-content: center;
+    align-items: center;  */
+}
+
+.label-key{
+    width: 130px;
+    display: flex;
+    justify-content: end;
+}
+
+.label-value{
+    margin-left: 10px;
+    font-size: 18px;
+   font-weight: 600;
+}
+
+/* -------   table ------ */
+
+.content-table
+{
+    border-collapse: collapse;
+    margin: 0px 20px;
+    padding: 10px;
+    font-size: 0.9em;
+    min-width: 400px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.content-table thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+
+}
+
+.content-table th,
+.content-table td{
+    padding: 12px 5px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px soild #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even){
+     background-color: #f3f3f3; 
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px soild #009879;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+    background-color: #eef2bd;
+}
+
+.btnEdit, .btnRemove{
+   margin-left: 4px;
+   padding: 6px;
+   font-size: 12px;
+   font-weight: 500;
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   border-radius: 6px;
+   border: none;
+}
+.btnEdit{
+    --tw-text-opacity: 1;
+    color: rgb(30 64 175 / var(--tw-text-opacity));
+    background-color: rgba(70, 139, 224, 0.288);
+}
+.btnRemove{
+    --tw-text-opacity: 1;
+    color: rgb(153 27 27 / var(--tw-text-opacity));
+    background-color: rgba(220, 66, 66, 0.283);
+}
+
+.content-table tbody tr:hover {
+    background-color: rgb(64, 41, 33);
+    color:#fff
+    
+}
+
+/* .content-table tbody tr:nth-of-type(even):hover{
+    border: 1px solid coral;
+    color: black;
+    background-color: rgb(64, 41, 33);
+} */
+
+
+/* ------- backdorp -----   */
+.backdrop{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+
+}
+
+/* ------ AddCustomer ----- */
+.addCustomerContainer{
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    max-width: 512px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.addCwrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-color: rgb(255,255,255,0.75);
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+}
+
+.addCRemove{
+    height: 28px;
+    width: 28px;
+}
+
+.formcustomer form{
+    background: #fff;
+    width: 100%;
+    padding: 25px;
+}
+
+.form-Item{
+    margin: 15px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.form-key{
+    width: 130px;
+}
