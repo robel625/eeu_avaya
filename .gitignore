@@ -1,2 +1,4 @@
 node_modules
 .client/node_modules
+.excel-mongodb/node_modules
+.sv-excel-mongodb/node_modules
