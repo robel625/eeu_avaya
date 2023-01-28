@@ -121,9 +121,9 @@ const Dashboard = () => {
                 currentStatus.map((c) => (
                   <tr
                     key={c._id}
-                    className={`${c._id === complain._id ? 'active-row' : ''}`}
+                    // className={`${c._id === complain._id ? 'active-row' : ''}`}
                   >
-                    <Link to={`/complain/${c._id}`}>
+                    <Link to={`/complain/${c._id}`} className="requestid">
                       <td>{c.id}</td>
                     </Link>
                     <td>{c.bp}</td>

@@ -22,7 +22,7 @@ const Customer = () => {
 
   return (
     <div>
-        <CustomerTop setSearch={setSearch}   setCustomer={setCustomer} customer={customer}/>
+        <CustomerTop setSearch={setSearch}   setCustomer={setCustomer} customer={customer} search={search}/>
         
         {createCustomerPop && (
             <AddCustomer

@@ -17,9 +17,7 @@ const users1Schema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: true,
       trim: true,
-      unique: true,
     },
     password: {
       type: String,
@@ -31,6 +29,9 @@ const users1Schema = new mongoose.Schema(
     },
     role: { type: String, default: 'users1' },
     rsg: { type: String  },
+    region: { type: String  },
+    district: { type: String  },
+    csc:{ type: String  },
     gender: { type: String, default: 'male' },
     mobile: { type: String, default: '' },
     address: { type: String, default: '' },

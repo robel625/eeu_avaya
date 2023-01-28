@@ -114,6 +114,7 @@ app.use('/api', require('./routes/groupRouter'));
 app.use('/api', require('./routes/groupmesRouter'));
 app.use('/api', require('./routes/eeuRouter'));
 app.use('/api', require('./routes/eeuComplainRouter'));
+app.use('/api', require('./routes/usersRouter'));
 
 const URI = process.env.MONGODB_URL;
 mongoose.connect(
@@ -130,12 +131,12 @@ mongoose.connect(
   }
 );
 
-// if (process.env.NODE_ENV === 'production') {
+//if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   });
-// }
+//}
 
 const port = process.env.PORT || 5000;
 http.listen(port, () => {

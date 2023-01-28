@@ -201,12 +201,12 @@ const SocketServer = (socket) => {
     socket.on("join_room", (roomName) => {
         socket.join(roomName);
         //cb(messages[roomName]);
-        console.log("room", roomName)
-        console.log("room_Messages", messages[roomName])
+        // console.log("room", roomName)
+        // console.log("room_Messages", messages[roomName])
     })
 
     socket.on("send message",({ content, to, sender, chatName, isChannel }) => {
-        console.log("content, to, sender, chatName, isChannel", content, to, sender, chatName, isChannel)
+        // console.log("content, to, sender, chatName, isChannel", content, to, sender, chatName, isChannel)
         if (isChannel) {
             const payload = {
                 content,
@@ -233,7 +233,7 @@ const SocketServer = (socket) => {
     // eeu complain
     socket.on("createComplain", complain => {
         const clients = users.filter(user => complain.rsg.includes(user.rsg))
-        console.log("createComplainresponsibe", clients)
+        // console.log("createComplainresponsibe", clients)
         if(clients.length > 0){
             clients.forEach(client => {
                 socket.to(`${client.socketId}`).emit('createComplain', complain)

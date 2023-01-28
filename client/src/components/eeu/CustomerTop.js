@@ -12,7 +12,7 @@ import {
   clearsearchCustomer,
 } from '../../redux/actions/eeuAction';
 
-const CustomerTop = ({ setSearch, setCustomer, customer }) => {
+const CustomerTop = ({ setSearch, setCustomer, customer, search }) => {
   const [close, setClose] = useState(true);
   const [cscPop, setCscPop] = useState(false);
   const [customerd, setCustomerd] = useState('');
@@ -27,7 +27,10 @@ const CustomerTop = ({ setSearch, setCustomer, customer }) => {
     if (eeu.customersearch?.length === 1) {
       setCustomer(eeu.customersearch[0]);
     }
-  }, [eeu.customersearch]);
+    if (eeu.customersearch?.length === 0) {
+      setCustomer('');
+    }
+  }, [eeu.customersearch, search]);
 
   console.log('customerd', customerd);
 
@@ -79,7 +82,7 @@ const CustomerTop = ({ setSearch, setCustomer, customer }) => {
     setCustomer('');
     setSearchData({ ...initialState });
     dispatch(clearsearchCustomer());
-    dispatch(searchCustomer({ bp: '', name: '', phone: '', rsg: '', auth }));
+    //dispatch(searchCustomer({ bp: '', name: '', phone: '', rsg: '', auth }));
   };
 
   const handlestring = async (e) => {

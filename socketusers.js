@@ -2,7 +2,7 @@ let users2 = [];
 var socket1
 
 function hi(users, socket) {
-    console.log('Socketusers',users)
+    // console.log('Socketusers',users)
     users2 = users;
     socket1 = socket
   }

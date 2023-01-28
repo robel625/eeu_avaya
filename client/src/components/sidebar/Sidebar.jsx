@@ -14,7 +14,7 @@ const Sidebar = () => {
     //{ label: 'fb', icon: 'logo-facebook', path: '/' },
     // { label: 'Message', icon: 'messenger', path: '/message' },
     { label: 'Message', icon: 'chatbubble-outline', path: '/message' },
-    //{ label: 'Discover', icon: 'explore', path: '/discover' },
+   
     { label: 'Group', icon: 'people', path: '/groupmessage' },
   ];
 
@@ -65,7 +65,16 @@ const Sidebar = () => {
           </li>
         ))}
 
-        <li>
+{(auth.user.role === 'admin') && <li className={`${(isActive('/admin'))?'hovered':''}`}>
+         <Link to={'/admin'}>
+            <span class="icon">
+              <ion-icon name="person-outline"></ion-icon>
+            </span>
+            <span class="title">Users</span>
+          </Link>
+        </li>}
+
+        {/* <li>
           <a href="#">
             <span class="icon">
               <ion-icon name="help-outline"></ion-icon>
@@ -99,7 +108,7 @@ const Sidebar = () => {
             </span>
             <span class="title">Sign Out</span>
           </a>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

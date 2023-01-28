@@ -165,7 +165,6 @@ function AddCustomer({setCreateCustomerPop, customer}) {
             className="form-control"
             id="address"
             name="address"
-            placeholder="Address"
             onChange={handleChangeInput}
             value={address}
           />

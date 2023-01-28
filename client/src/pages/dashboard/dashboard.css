@@ -146,6 +146,11 @@ details .recentOrders tbody tr.active-row {
     white-space: nowrap;
     padding: 5px;
     border-radius: 5px;
+
+    color: goldenrod;
+    background-color: rgba(189, 189, 3, 0.103);
+    font-size: 14px;
+    font-weight: 500;
   }
   .status.new {
     color: rgb(218, 32, 32);
@@ -172,6 +177,10 @@ details .recentOrders tbody tr.active-row {
     border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
+  }
+
+  .requestid{
+    color: #0a4dde;
   }
 
   .paginate{

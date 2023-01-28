@@ -17,7 +17,7 @@ import groupmessage from './groupReducer';
 import online from './onlineReducer';
 import call from './callReducer';
 import peer from './peerReducer';
-import eeu from './eeuReducer'
+import eeu from './eeuReducer';
 
 export default combineReducers({
   auth,

@@ -9,6 +9,7 @@ const initialState = {
     saved:{},
     customersearch: [],
     phone: {},
+    users: [],
 }
 
 const eeuReducer = (state = initialState, action) => {
@@ -47,6 +48,11 @@ const eeuReducer = (state = initialState, action) => {
             return {
                 ...state,
                 phone: action.payload
+            };
+        case EEU_TYPES.GET_ALLUSERS:
+            return {
+                ...state,
+                users: action.payload.users
             };
 
 
