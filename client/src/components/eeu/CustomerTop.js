@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import {
   searchCustomer,
   clearsearchCustomer,
+  getCustomer,
 } from '../../redux/actions/eeuAction';
 
 const CustomerTop = ({ setSearch, setCustomer, customer, search }) => {
@@ -26,12 +27,17 @@ const CustomerTop = ({ setSearch, setCustomer, customer, search }) => {
     setSearch(eeu.customersearch);
     if (eeu.customersearch?.length === 1) {
       setCustomer(eeu.customersearch[0]);
+        let id = eeu.customersearch[0]._id;
+       if(eeu.customer?._id !== id){
+         dispatch(getCustomer({id, auth}))
+       }
     }
     if (eeu.customersearch?.length === 0) {
       setCustomer('');
     }
   }, [eeu.customersearch, search]);
 
+  
   console.log('customerd', customerd);
 
   async function fetchData() {}

@@ -4,10 +4,11 @@ const groupSchema = new mongoose.Schema(
   {
     groupname: {
       type: String,
-      required: true,
-      trim: true,
-      maxlength: 25,
-      unique: true,
+      //required: true,
+      //trim: true,
+      //maxlength: 25,
+      //unique: true,
+      //default: 'eeu_complain',
     },
     avatar: {
       type: String,

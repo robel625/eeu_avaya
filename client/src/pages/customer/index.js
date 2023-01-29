@@ -2,12 +2,29 @@ import './customer.css';
 import CustomerTop from "../../components/eeu/CustomerTop";
 import { useEffect, useState } from 'react';
 import AddCustomer from '../../components/eeu/AddCustomer';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCustomer } from '../../redux/actions/eeuAction';
 import FrontPaginate from "../../components/eeu/FrontPaginate";
 
 const Customer = () => {
   const [createCustomerPop, setCreateCustomerPop] = useState(false);
   const [search, setSearch] = useState([]);
   const [customer, setCustomer] = useState('');
+
+  const { eeu, auth, } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  
+  function handleCustomer(c) {
+    console.log(c)
+    setCustomer(c)
+    let id = c?._id
+    if(eeu.customer?._id !== id){
+          dispatch(getCustomer({id, auth}))
+    }
+         
+  }; 
+
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
@@ -50,6 +67,7 @@ const Customer = () => {
                 <tr
                   key={c._id}
                   onClick={() => setCustomer(c)}
+                  //onClick={() => handleCustomer(c)}
                   className={`${c._id === customer._id ? 'active-row' : ''}`}
                   //className="active-row"
                   //style={{ background: c._id === customer._id ? "active-row" : "" }}

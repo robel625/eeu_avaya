@@ -44,7 +44,7 @@ const Dashboard = () => {
       <h3 className='username'>{userData.username}</h3>
 
       <div class="cardBox">
-        <div class="card1" onClick={() => setStatus(complain.new)}>
+        <div class="card1" onClick={() => complain?.new?.length && setStatus(complain.new)}>
           <div>
             <div class="numbers">{complain?.new?.length || 0}</div>
             <div class="cardName">NEW</div>
@@ -57,7 +57,7 @@ const Dashboard = () => {
 
         <div
           class="card1"
-          onClick={() => setStatus(complain['Dispatcher Required'])}
+          onClick={() => complain['Dispatcher Required']?.length && setStatus(complain['Dispatcher Required'])}
         >
           <div>
             <div class="numbers">
@@ -71,7 +71,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div class="card1" onClick={() => setStatus(complain['In Progress'])}>
+        <div class="card1" onClick={() => complain['In Progress']?.length &&  setStatus(complain['In Progress'])}>
           <div>
             <div class="numbers">{complain['In Progress']?.length || 0}</div>
             <div class="cardName">In Progress</div>
@@ -82,7 +82,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div class="card1" onClick={() => setStatus(complain['Process Completed'])}>
+        <div class="card1" onClick={() => complain['Process Completed']?.length && setStatus(complain['Process Completed'])}>
           <div>
             <div class="numbers">{complain['Process Completed']?.length || 0}</div>
             <div class="cardName">Process Completed</div>

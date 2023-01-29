@@ -32,15 +32,12 @@ const SearchComplain = () => {
     //   fetchData();
     // }, [customer]);
 
-    //console.log('customerd', customerd)
-
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(10);
 
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentSearch = search && search.slice(indexOfFirstPost, indexOfLastPost);
-  
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentSearch = search && search.slice(indexOfFirstPost, indexOfLastPost);
   
     const paginate = pageNumber => setCurrentPage(pageNumber);
      

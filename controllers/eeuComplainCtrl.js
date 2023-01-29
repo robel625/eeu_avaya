@@ -39,7 +39,7 @@ const counterSchema= {
             }
             )
 
-            console.log("seqId",seqId)
+            // console.log("seqId",seqId)
 
             
             
@@ -50,7 +50,7 @@ const counterSchema= {
             res.json({msg: 'Complain Add Success!',
                        saved: newComplain
                 })
-            console.log("complainDataSaved",newComplain.id)
+            // console.log("complainDataSaved",newComplain.id)
         
         } catch (err) {
             return res.status(500).json({msg: err.message})
@@ -64,7 +64,17 @@ const counterSchema= {
             const id = req.params.id;
             const complain = await Complain.aggregate([
                 { $match: { $expr : { $eq: [ '$customer_id' , { $toObjectId: id } ] } } },
-            ])
+                {$lookup: {
+                    from: "keycustomers",
+                    localField: "customer_id",
+                    foreignField: "_id",
+                    as: "customer",
+                  }},
+                  {$unwind: {
+                    path: "$customer",
+                    preserveNullAndEmptyArrays: true
+                }},
+            ]).sort('-createdAt')
 
 
         res.json({complain})
@@ -100,7 +110,7 @@ const counterSchema= {
   searchComplain: async (req, res) => {
     try {
         const bp = req.query.bp
-        console.log("complain req.query.bp",req.query.bp,req.query.phone,req.query.requestid)
+        // console.log("complain req.query.bp",req.query.bp,req.query.phone,req.query.requestid)
         //const complain = await Complain.findOne({bp})
         const complain = await Complain.aggregate([
             {$match: {bp: {$regex: req.query.bp}}},
@@ -116,7 +126,7 @@ const counterSchema= {
             path: "$customer",
             preserveNullAndEmptyArrays: true
         }},
-        ])
+        ]).sort('-createdAt')
         
         res.json({complain})
     } catch (err) {
@@ -141,12 +151,16 @@ const counterSchema= {
         if(req.user.role === 'SV')
         {
         const complain = await Complain.find({rsg : req.user.rsg})
-        .populate('customer_id')
+        .populate('customer_id').sort('-createdAt')
         res.json({complain})
         }
         else if(req.user.role === 'CC'){
             const complain = await Complain.find({created_by : req.user.username})
-            .populate('customer_id')
+            .populate('customer_id').sort('-createdAt')
+            res.json({complain})
+        }
+        else{
+            const complain = []
             res.json({complain})
         }
 

@@ -4,11 +4,11 @@ const eeuCtrl = {
     addCustomer: async (req, res) => {
         try {
             const { bp, region, district,csc,rsg, name, phone, email, address } = req.body
-            console.log(bp, region, district,csc,rsg, name, phone, email, address)
+            // console.log(bp, region, district,csc,rsg, name, phone, email, address)
             const newCustomer = new KeyCustomers({
                 bp, region, district,csc,rsg, name, phone, email, address
               });
-              console.log(bp, region, district,csc,rsg, name, phone, email, address)
+            //   console.log(bp, region, district,csc,rsg, name, phone, email, address)
               await newCustomer.save();
             res.json({msg: 'Customer Add Success!'})
 
@@ -66,7 +66,7 @@ const eeuCtrl = {
     customerdetail: async (req, res) => {
         try {
             const id = req.params.id;
-            console.log("id",id)
+            // console.log("id",id)
             const customer = await KeyCustomers.aggregate([
                 { $match: { $expr : { $eq: [ '$_id' , { $toObjectId: id } ] } } },
                 {$lookup: {
@@ -118,7 +118,7 @@ const eeuCtrl = {
     updateCustomer: async (req, res) => {
     try{
         const { bp, region, district,csc,rsg, name, phone, email, address } = req.body
-        console.log(req.params.id,bp, region, district,csc,rsg, name, phone, email, address)
+        // console.log(req.params.id,bp, region, district,csc,rsg, name, phone, email, address)
         const customer = await  KeyCustomers.findOneAndUpdate({_id : req.params.id}, {bp, region, district,csc,rsg, name, phone, email, address})
                    
            
