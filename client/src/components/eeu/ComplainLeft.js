@@ -17,6 +17,7 @@ const ComplainLeft = () => {
     customer_id: eeu?.customer?._id,
     name: eeu?.customer?.name,
     rsg: eeu?.customer?.rsg,
+    responsible: '',
     created_by: auth.user.username,
   });
   //const [customer, setCustomer] = useState('')
@@ -31,6 +32,7 @@ const ComplainLeft = () => {
     customer_id,
     name,
     rsg,
+    responsible,
   } = complainData;
 
   const [created, setCreated] = useState('');
@@ -63,6 +65,12 @@ const ComplainLeft = () => {
         return dispatch({
           type: GLOBALTYPES.ALERT,
           payload: { error: 'Please add your Catagory 2.' },
+        });
+
+        if (!responsible)
+        return dispatch({
+          type: GLOBALTYPES.ALERT,
+          payload: { error: 'Please add your Employee responsible.' },
         });
 
       const res = await postDataAPI('createComplain', complainData, auth.token);
@@ -120,12 +128,23 @@ const ComplainLeft = () => {
                   ></input>
                 </li>
                 <li className="complainListItem">
-                  <div className="complainInfoKey">Employee responsible :</div>
+                  <div className="complainInfoKey">RSG :</div>
                   <input
                     type="text"
                     id="rsg"
                     name="rsg"
                     value={complainData?.rsg}
+                    className="complaininfoValue"
+                  ></input>
+                </li>
+                <li className="complainListItem">
+                  <div className="complainInfoKey">Employee responsible :</div>
+                  <input
+                    type="text"
+                    id="responsible"
+                    name="responsible"
+                    value={responsible}
+                    onChange={handleChange}
                     className="complaininfoValue"
                   ></input>
                 </li>
@@ -339,8 +358,12 @@ const ComplainLeft = () => {
             <div className="label-value">{created?.customer?.name} </div>
           </div>
           <div className="label">
-            <div className="label-key">responsible :</div>
+            <div className="label-key">rsg :</div>
             <div className="label-value">{created?.rsg} </div>
+          </div>
+          <div className="label">
+            <div className="label-key">responsbile :</div>
+            <div className="label-value">{created?.responsbile} </div>
           </div>
           <hr></hr>
           <div className="label">

@@ -2,12 +2,11 @@ const mongoose = require('mongoose');
 
 const eeuComplainsSchema = new mongoose.Schema(
   {
-    id:{type:String, 
-      // required: true, unique: true
-    },
+    id:{type:String, required: true, unique: true},
     description: { type: String, default: '' },
     created_by: { type: String, default: '' },
     rsg: { type: String, default: '' },
+    responsible: {type:String, required: true},
     catagory1: { type: String, default: '' },
     catagory2: { type: String, default: '' },
     phone: { type: String, default: '' },

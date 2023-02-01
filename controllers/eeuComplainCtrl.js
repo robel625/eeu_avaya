@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Complain = require('../models/eeuComplainModel');
+const Users = require('../models/userModel')
 
 const counterSchema= {
     id:{type:String},
@@ -14,7 +15,12 @@ const counterSchema= {
           let seqId="15";
         try {
 
-            const {bp, description,catagory1,catagory2,phone,address, status,customer_id, name, rsg, created_by } = req.body
+            const {bp, description,catagory1,catagory2,phone,address, status,customer_id, name, rsg,responsible, created_by } = req.body
+
+            const responsbile_user = await Users.findOne({ username: {'$regex': responsible,$options:'i'} });
+            if (!responsbile_user)
+               return res.status(400).json({ msg: `There is no agent by this id ${responsible}` });
+
 
             const existstatus = ["new","Dispatcher Required", "Inspection Required","Issue due to EEU","In Progress","EAM order Required" ]
             const complain_new = await Complain.findOne({customer_id, catagory1, status: existstatus});
@@ -44,7 +50,7 @@ const counterSchema= {
             
             
             const  newComplain = new Complain(
-                {bp, description,catagory1,catagory2, phone, address, status,customer_id, name, rsg, created_by, id: seqId  }
+                {bp, description,catagory1,catagory2, phone, address, status,customer_id, name, rsg,responsible, created_by, id: seqId  }
             );
               await newComplain.save();
             res.json({msg: 'Complain Add Success!',
@@ -138,6 +144,13 @@ const counterSchema= {
    editComplain: async (req, res) => {
            try{
             const editComplain = req.body
+            console.log("er",editComplain.responsible)
+            const responsible = editComplain.responsible
+            console.log("r",responsible)
+            const responsbile_user = await Users.findOne({ username: {'$regex': responsible,$options:'i'} });
+            if (!responsbile_user)
+               return res.status(400).json({ msg: `There is no agent by this id ${responsible}` });
+
             const complain = await Complain.findOneAndUpdate({_id : req.params.id},editComplain)
             res.json({msg: "Update Success!"})
 
@@ -150,7 +163,7 @@ const counterSchema= {
     try{
         if(req.user.role === 'SV')
         {
-        const complain = await Complain.find({rsg : req.user.rsg})
+        const complain = await Complain.find({responsible : {'$regex': req.user.username,$options:'i'}})
         .populate('customer_id').sort('-createdAt')
         res.json({complain})
         }

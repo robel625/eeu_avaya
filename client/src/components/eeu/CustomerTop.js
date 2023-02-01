@@ -230,7 +230,7 @@ const CustomerTop = ({ setSearch, setCustomer, customer, search }) => {
           <hr></hr>
           {customer?._id && (
             <Link to={`/eeu/${customer?._id}`}>
-              <button className="btn btn-dark w-42">Add New complain</button>
+              <button className="btn btn-dark w-42">Create Complain</button>
             </Link>
           )}
         </div>

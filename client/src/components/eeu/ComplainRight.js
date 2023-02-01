@@ -71,16 +71,19 @@ const ComplainRight = () => {
       </div>
 
       <div className="">
-        <div className="responsbile-title">Employe responsbile :</div>
+        <div className="responsbile-title">Employee :</div>
         <div className="responsble1 ">
           {customer?.responsbile?.map((r) => (
             <div className="responsble2 ">
               <div>
-                <Link
-                  to={`/profile/${r._id}`}
+                {/* <Link
+                  to={`/profile/${r._id}`} 
                   className="d-flex align-items-center"
-                >
+                > */}
+                 <div className="d-flex align-items-center">
+                  <Link to={`/profile/${r._id}`} >
                   <Avatar src={r.avatar} size="big-avatar" />
+                  </Link>
 
                   <div
                     className="ml-1"
@@ -92,7 +95,8 @@ const ComplainRight = () => {
                       {r.fullname}
                     </small>
                   </div>
-                </Link>
+                  </div>
+                {/* </Link> */}
               </div>
             </div>
           ))}

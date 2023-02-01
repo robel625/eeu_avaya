@@ -60,6 +60,7 @@ const SearchComplain = () => {
                         <th className="">bp</th>
                         <th className="">Name</th>
                         <th className="">RSG</th>
+                        <th className="">Responsible</th>
                         <th className="">Catagory</th>
                         <th className="">Status</th>
                         <th className="">Date</th>
@@ -77,6 +78,7 @@ const SearchComplain = () => {
                             <td>{c.bp}</td>
                             <td>{c.customer.name}</td>
                             <td>{c.rsg}</td>
+                            <td>{c.responsible}</td>
                             <td>{c.catagory1}</td>
                             <td>{c.status}</td>
                             <td>{new Date(c.updatedAt).toLocaleString()}</td>

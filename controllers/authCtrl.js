@@ -61,7 +61,7 @@ const authCtrl = {
     try {
       const { username, password } = req.body;
 
-      const user = await Users.findOne({ username });
+      const user = await Users.findOne({ username : {'$regex': username,$options:'i'} });
 
       if (!user)
         return res.status(400).json({ msg: 'This user does not exist.' });

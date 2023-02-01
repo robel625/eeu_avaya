@@ -1,0 +1,24 @@
+.print1{
+    background-color: transparent;
+    color: blue;
+    font:bold;
+    padding: 2px 8px; 
+    border-radius: 4px;
+    border: 1px solid blue;
+
+}
+.print1:hover{
+    background-color:  rgb(93, 93, 216);
+    color: white;
+    transition: all;
+    animation-duration: 300;
+
+
+}
+
+
+@media print{
+    .label-value {
+        color: brown;
+    }
+}
